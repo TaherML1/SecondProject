@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Company Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-top: 40px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        img {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<h1>Employee List</h1>
+<table>
+    <tr>
+        <th>Employee No</th>
+        <th>Name</th>
+        <th>Job</th>
+        <th>Department No</th>
+    </tr>
+    <tr th:each="employee : ${employees}">
+        <td th:text="${employee.empno}"></td>
+        <td th:text="${employee.ename}"></td>
+        <td th:text="${employee.job}"></td>
+        <td th:text="${employee.deptno}"></td>
+    </tr>
+</table>
+
+<h1>Department List</h1>
+<table>
+    <tr>
+        <th>Department No</th>
+        <th>Name</th>
+        <th>Location</th>
+    </tr>
+    <tr th:each="department : ${departments}">
+        <td th:text="${department.deptno}"></td>
+        <td th:text="${department.dname}"></td>
+        <td th:text="${department.loc}"></td>
+    </tr>
+</table>
+
+<h1>Employee and Department Info</h1>
+<table>
+    <tr>
+        <th>Employee Name</th>
+        <th>Manager Name</th>
+        <th>Salary</th>
+        <th>Commission</th>
+        <th>Department Name</th>
+        <th>Image</th>
+    </tr>
+    <tr th:each="info : ${employeeDepartmentInfo}">
+        <td th:text="${info.employeeName}"></td>
+        <td th:text="${info.managerName}"></td>
+        <td th:text="${info.salary}"></td>
+        <td th:text="${info.commission}"></td>
+        <td th:text="${info.departmentName}"></td>
+        <td>
+            <img th:src="${info.imageUrl}" alt="Employee Image" style="width: 50px; height: 50px;" />
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
