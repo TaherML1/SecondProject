@@ -10,7 +10,7 @@ import java.nio.file.Paths;
 @Service
 public class S3Service {
     private final S3Client s3Client;
-    private final String bucketName = "taher"; // Your bucket name
+    private final String bucketName = "taher";
 
     public S3Service(S3Client s3Client) {
         this.s3Client = s3Client;
@@ -27,7 +27,7 @@ public class S3Service {
                     RequestBody.fromFile(Paths.get(filePath))
             );
         } catch (SdkException e) {
-            // Handle error here (log it or rethrow as a custom exception)
+
             System.err.println("Failed to upload image: " + e.getMessage());
         }
     }
@@ -35,14 +35,14 @@ public class S3Service {
 
     public String getImageUrl(String key) {
         try {
-            // Check if the key is not null or empty
+
             if (key == null || key.isEmpty()) {
-                return ""; // Return an empty string or a default image URL
+                return "";
             }
             return s3Client.utilities().getUrl(builder -> builder.bucket(bucketName).key(key)).toExternalForm();
         } catch (SdkException e) {
             System.err.println("Failed to retrieve image URL: " + e.getMessage());
-            return ""; // Return an empty string or a default image URL
+            return "";
         }
     }
 
@@ -51,7 +51,7 @@ public class S3Service {
         try {
             s3Client.deleteObject(builder -> builder.bucket(bucketName).key(key));
         } catch (SdkException e) {
-            // Handle error here (log it or rethrow as a custom exception)
+
             System.err.println("Failed to delete image: " + e.getMessage());
         }
     }

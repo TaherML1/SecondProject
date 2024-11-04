@@ -6,19 +6,19 @@ public class EmployeeDTO {
     private Double salary;
     private Double commission;
     private String departmentName;
-    private String imageUrl; // Updated field name
+    private String imageUrl;
 
-    // Constructor
+
     public EmployeeDTO(String employeeName, String managerName, Double salary, Double commission, String departmentName, String imageUrl) {
         this.employeeName = employeeName;
         this.managerName = managerName;
         this.salary = salary;
         this.commission = commission;
         this.departmentName = departmentName;
-        this.imageUrl = imageUrl; // Updated field name
+        this.imageUrl = imageUrl;
     }
 
-    // Getters and setters
+
     public String getEmployeeName() { return employeeName; }
     public void setEmployeeName(String employeeName) { this.employeeName = employeeName; }
 
@@ -34,6 +34,6 @@ public class EmployeeDTO {
     public String getDepartmentName() { return departmentName; }
     public void setDepartmentName(String departmentName) { this.departmentName = departmentName; }
 
-    public String getImageUrl() { return imageUrl; } // Updated getter
-    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; } // Updated setter
+    public String getImageUrl() { return imageUrl; }
+    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 }

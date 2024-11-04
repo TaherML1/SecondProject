@@ -11,5 +11,5 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
             "FROM Employee e " +
             "JOIN Employee m ON e.mgr = m.empno " +
             "JOIN Department d ON e.deptno = d.deptno")
-    List<EmployeeDTO> getEmployeeInfo(); // Custom method for fetching joined data
+    List<EmployeeDTO> getEmployeeInfo();
 }
